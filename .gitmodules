@@ -1,0 +1,6 @@
+[submodule "ui/Fluent-gtk-theme"]
+	path = ui/Fluent-gtk-theme
+	url = https://github.com/vinceliuice/Fluent-gtk-theme
+[submodule "ui/Qogir-icon-theme"]
+	path = ui/Qogir-icon-theme
+	url = https://github.com/vinceliuice/Qogir-icon-theme
