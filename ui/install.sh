@@ -24,7 +24,7 @@ git submodule update --init --recursive --remote ui/Fluent-gtk-theme ui/Qogir-ic
 # Install Fluent GTK theme
 echo "[omagnome]  Installing Fluent GTK theme..."
 cd "$SCRIPT_DIR/Fluent-gtk-theme"
-./install.sh -t default -c light -s standard -l --tweaks float
+./install.sh -t default -c light -s standard -l
 
 # Install Qogir icon theme
 echo "[omagnome]  Installing Qogir icon theme..."

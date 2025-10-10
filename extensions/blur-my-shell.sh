@@ -35,7 +35,7 @@ fi
 printf "[omagnome]  Configuring Blur my Shell settings: "
 
 # Configure pipelines
-dconf write /org/gnome/shell/extensions/blur-my-shell/pipelines "{'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <0.6>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000001'>, 'params': <{'radius': <30>, 'brightness': <0.3>, 'unscaled_radius': <30>}>}>, <{'type': <'corner'>, 'id': <'effect_000000000002'>, 'params': <{'radius': <8>}>}>]>}}"
+dconf write /org/gnome/shell/extensions/blur-my-shell/pipelines "{'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <0.3>, 'unscaled_radius': <100>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'corner'>, 'id': <'effect_000000000002'>, 'params': <{'radius': <8>}>}>, <{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000001'>, 'params': <{'radius': <30>, 'brightness': <0.3>, 'unscaled_radius': <0>}>}>]>}}"
 
 # Panel settings - dark panel with blur
 dconf write /org/gnome/shell/extensions/blur-my-shell/panel/blur true
@@ -47,7 +47,7 @@ dconf write /org/gnome/shell/extensions/blur-my-shell/panel/override-background 
 dconf write /org/gnome/shell/extensions/blur-my-shell/panel/override-background-dynamically false
 dconf write /org/gnome/shell/extensions/blur-my-shell/panel/force-light-text false
 dconf write /org/gnome/shell/extensions/blur-my-shell/panel/unblur-in-overview false
-dconf write /org/gnome/shell/extensions/blur-my-shell/panel/pipeline "'pipeline_default_rounded'"
+dconf write /org/gnome/shell/extensions/blur-my-shell/panel/pipeline "'pipeline_default'"
 
 # Dash-to-dock settings
 dconf write /org/gnome/shell/extensions/blur-my-shell/dash-to-dock/blur true
@@ -59,6 +59,12 @@ dconf write /org/gnome/shell/extensions/blur-my-shell/dash-to-dock/pipeline "'pi
 
 # Overview settings
 dconf write /org/gnome/shell/extensions/blur-my-shell/overview/blur false
+dconf write /org/gnome/shell/extensions/blur-my-shell/overview/style-components 2
+dconf write /org/gnome/shell/extensions/blur-my-shell/overview/pipeline "'pipeline_default'"
 
 # Appfolder settings
 dconf write /org/gnome/shell/extensions/blur-my-shell/appfolder/blur false
+dconf write /org/gnome/shell/extensions/blur-my-shell/appfolder/brightness 0.6
+dconf write /org/gnome/shell/extensions/blur-my-shell/appfolder/sigma 30
+
+printf "done.\n"
