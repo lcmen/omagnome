@@ -12,7 +12,7 @@
    - Main orchestration script
    - Executes all `gnome/*.sh` scripts for GNOME configuration
    - Executes all `extensions/*.sh` scripts for extension installation
-   - Currently has a syntax error on line 21: missing semicolon after `extensions/*.sh`
+   - Executes `ui/install.sh` for theme and icon installation
 
 2. **GNOME Configuration** (`gnome/`)
    - `shortcuts.sh`: Systematically removes all default GNOME keybindings
@@ -21,23 +21,31 @@
      - `org.gnome.shell.keybindings` (shell operations)
      - `org.gnome.settings-daemon.plugins.media-keys` (media keys)
      - `org.gnome.mutter.keybindings` (tiling shortcuts)
+   - `workspaces.sh`: Configures 5 static workspaces
 
 3. **Extensions** (`extensions/`)
-   - Each script installs a specific GNOME extension
+   - Each script installs and configures a specific GNOME extension
    - Uses GNOME Extensions D-Bus API for installation
    - Includes idempotency checks to avoid reinstalling
-   - Example: `spacebar.sh` installs workspace management extension
+   - Current extensions:
+     - `forge.sh`: Tiling window management with custom keybindings
+     - `spacebar.sh`: Workspace management bar
+     - `blur-my-shell.sh`: UI blur effects for panel and dock
+     - `dim-background-windows.sh`: Dims unfocused windows
+
+4. **UI Theme System** (`ui/`)
+   - `install.sh`: Orchestrates theme installation
+   - Uses git submodules for theme repositories:
+     - Fluent GTK theme (vinceliuice/Fluent-gtk-theme)
+     - Qogir icon theme (vinceliuice/Qogir-icon-theme)
+   - Automatically applies themes via gsettings
 
 ## Known Issues
 
-### Critical
-- **install.sh:21** - Syntax error: `for extension in extensions/*.sh do` should be `for extension in extensions/*.sh; do`
-
 ### To Implement
-- Additional extension installations
-- Custom keybinding configuration scripts
-- UI theme/styling configuration
-- Extension configuration/settings automation
+- Additional extension installations (as needed)
+- Custom keybinding configuration beyond Forge defaults
+- Extension updates/maintenance automation
 
 ## Development Guidelines
 
@@ -49,11 +57,12 @@
 
 ### Adding New Extensions
 1. Create a new script in `extensions/` directory
-2. Follow the pattern from `spacebar.sh`:
+2. Follow the pattern from existing extension scripts:
    - Check if extension is already installed
    - Use D-Bus API to install: `gdbus call --session --dest org.gnome.Shell.Extensions ...`
    - Enable with `gnome-extensions enable UUID`
-3. Include proper error handling
+   - Optionally configure settings with `dconf write` commands
+3. Include proper error handling and user feedback
 
 ### Extension Installation via D-Bus
 ```bash
@@ -97,15 +106,19 @@ To add a new extension:
 ## Technologies & Dependencies
 
 - **Shell**: Bash scripting for automation
-- **GNOME Settings**: `gsettings` (part of GLib)
+- **GNOME Settings**: `gsettings` and `dconf` (part of GLib)
 - **Extension Management**: `gnome-extensions` CLI, D-Bus
 - **Desktop Environment**: GNOME Shell 40+
+- **Theme Tools**: `sass` for GTK theme compilation
+- **Version Control**: Git with submodules for theme management
 
 ## File Locations
 
 - Extension installation location: `~/.local/share/gnome-shell/extensions/`
 - GNOME settings: dconf database (`~/.config/dconf/user`)
 - System extension directory: `/usr/share/gnome-shell/extensions/`
+- GTK themes: `~/.themes/` or `~/.local/share/themes/`
+- Icon themes: `~/.icons/` or `~/.local/share/icons/`
 
 ## Useful Commands for Development
 
@@ -131,28 +144,34 @@ journalctl -f /usr/bin/gnome-shell
 
 ## Future Enhancements
 
-1. **Additional Extensions**: Continue adding curated extensions
-2. **Custom Keybindings**: Add script to set up preferred keybindings after clearing defaults
-3. **Theme Configuration**: UI/GTK theme setup
-4. **Backup/Restore**: Export current settings before installation
-5. **Rollback Capability**: Save previous settings for easy restoration
-6. **Extension Configuration**: Configure extension settings, not just install them
-7. **Validation**: Pre-flight checks for GNOME version compatibility
+1. **Additional Extensions**: Continue adding curated extensions as needed
+2. **Custom Keybindings**: Add script to set up additional keybindings beyond Forge defaults
+3. **Backup/Restore**: Export current settings before installation
+4. **Rollback Capability**: Save previous settings for easy restoration
+5. **Validation**: Pre-flight checks for GNOME version compatibility
+6. **Extension Updates**: Automation for keeping extensions up to date
 
 ## Quick Reference
 
 ### What This Project Does
 - Removes ALL default GNOME keybindings (clean slate approach)
-- Installs curated GNOME extensions for enhanced functionality
+- Installs and configures curated GNOME extensions:
+  - Forge (tiling window management with custom keybindings)
+  - Space Bar (workspace management)
+  - Blur my Shell (UI blur effects)
+  - Dim Background Windows (focus enhancement)
+- Installs and applies Fluent GTK theme (light variant)
+- Installs and applies Qogir icon theme
+- Configures 5 static workspaces
 - Provides framework for reproducible GNOME setup
 
-### What This Project Will Do
-- Add more curated extensions
-- Configure custom keybindings optimized for productivity
-- Apply UI theme and styling
-- Configure installed extensions
+### What This Project Will Do (Future)
+- Add more curated extensions as needed
+- Configure additional keybindings beyond Forge defaults
+- Provide backup/restore and rollback capabilities
 
-### What Users Should Do Manually (Currently)
-- Configure custom keybindings
-- Set up UI themes
-- Configure extension preferences
+### What Users May Want to Customize
+- Number of static workspaces (currently 5)
+- Forge keybindings (see extensions/forge.sh)
+- Theme variants (currently Light, can change to Dark)
+- Extension-specific settings

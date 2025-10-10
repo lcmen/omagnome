@@ -6,9 +6,13 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 
 ## Features
 
-- **Tiling Window Management**: Lightweight tiling capabilities on top of GNOME
+- **Tiling Window Management**: Lightweight tiling capabilities via [Forge](https://extensions.gnome.org/extension/4481/forge/)
+- **UI Enhancements**:
+  - [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) - Blurred panel and UI elements
+  - [Dim Background Windows](https://extensions.gnome.org/extension/6313/dim-background-windows/) - Dimmed unfocused windows
+  - [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/) - Workspace management
+- **Modern Theme**: Fluent GTK theme with Qogir icons for a polished look
 - **Clean Keybindings**: Removes default GNOME shortcuts to provide a clean slate for custom bindings
-- **Curated Extensions**: Carefully selected GNOME extensions for enhanced functionality
 - **Automated Setup**: Single script installation for reproducible desktop environment
 
 ## Installation
@@ -21,17 +25,6 @@ This will:
 1. Configure GNOME settings and remove default keybindings
 2. Install and enable curated extensions
 
-## Project Structure
-
-```
-omagnome/
-├── install.sh              # Main installation script
-├── gnome/
-│   └── shortcuts.sh        # Removes default GNOME keybindings
-└── extensions/             # GNOME extension installation scripts
-    └── *.sh                # Individual extension installers
-```
-
 ## Requirements
 
 - GNOME Desktop Environment
@@ -40,6 +33,11 @@ omagnome/
 - `gnome-shell-extensions` package (for extension installation via D-Bus)
 - `sass` (for compiling GTK themes)
 - D-Bus session bus access
+
+## Credits
+
+- [Fluent GTK Theme](https://github.com/vinceliuice/Fluent-gtk-theme) by [vinceliuice](https://github.com/vinceliuice)
+- [Qogir Icon Theme](https://github.com/vinceliuice/Qogir-icon-theme) by [vinceliuice](https://github.com/vinceliuice)
 
 ## License
 
