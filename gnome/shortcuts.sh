@@ -106,3 +106,15 @@ gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[]"
 
 # Disable custom keybindings
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "[]"
+
+echo "[omagnome]  Setting up keyboard shortcuts..."
+
+# Enable Super+Tab for switching between applications
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
+
+# Enable Super+Q to close/quit applications
+gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']"
+
+# Enable Print Screen to open screenshot UI
+gsettings set org.gnome.shell.keybindings show-screenshot-ui "['Print']"
