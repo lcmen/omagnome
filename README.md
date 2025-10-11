@@ -15,6 +15,42 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 - **Clean Keybindings**: Removes default GNOME shortcuts to provide a clean slate for custom bindings
 - **Automated Setup**: Single script installation for reproducible desktop environment
 
+## Keyboard Shortcuts
+
+### General
+- `Super + Tab` - Switch between applications
+- `Shift + Super + Tab` - Switch between applications (reverse)
+- `Super + Q` - Close/quit active window
+- `Print` - Open screenshot/screencast UI
+
+### Forge Tiling (Window Focus)
+- `Super + ↑/↓/←/→` - Focus window in direction
+
+### Forge Tiling (Window Movement)
+- `Shift + Super + ↑/↓/←/→` - Move window in direction
+- `Ctrl + Super + ↑/↓/←/→` - Swap window with another in direction
+- `Super + Return` - Swap with last active window
+
+### Forge Tiling (Window Resizing)
+- `Alt + Super + ↑/↓/←/→` - Increase window size in direction
+- `Shift + Alt + Super + ↑/↓/←/→` - Decrease window size in direction
+
+### Forge Tiling (Window Snapping)
+- `Shift + Super + Return` - Snap window to center
+- `Shift + Super + H` - Snap window to left 2/3
+- `Shift + Super + L` - Snap window to right 2/3
+- `Shift + Super + J` - Snap window to left 1/3
+- `Shift + Super + K` - Snap window to right 1/3
+
+### Forge Tiling (Layouts & Modes)
+- `Super + W` - Toggle tiling mode
+- `Shift + Super + W` - Toggle tiling for active workspace
+- `Super + C` - Toggle floating mode for window
+- `Shift + Super + C` - Toggle always-float for window
+- `Super + Z` - Split horizontal
+- `Super + V` - Split vertical
+- `Super + X` - Toggle split layout
+
 ## Installation
 
 ```bash

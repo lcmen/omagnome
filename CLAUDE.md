@@ -55,6 +55,13 @@
 3. Include echo statements for user feedback
 4. Script will be auto-executed by `install.sh`
 
+### Managing Keyboard Shortcuts
+**IMPORTANT**: Whenever you add, remove, or update keyboard shortcuts:
+1. Update the shortcuts in the relevant configuration file (`gnome/shortcuts.sh` or `extensions/*.sh`)
+2. **ALWAYS** update the "Keyboard Shortcuts" section in `README.md` to reflect the changes
+3. Keep the README shortcut list organized by category (General, Forge Tiling, etc.)
+4. Use clear, descriptive labels for each shortcut
+
 ### Adding New Extensions
 1. Create a new script in `extensions/` directory
 2. Follow the pattern from existing extension scripts:
