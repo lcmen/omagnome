@@ -31,3 +31,12 @@ else
     printf "failed.\n"
     exit 1
 fi
+
+printf "[omagnome]  Configuring Dim Background Windows settings: "
+
+# Transparency and dimming settings
+dconf write /org/gnome/shell/extensions/dim-background-windows/brightness 0.90
+dconf write /org/gnome/shell/extensions/dim-background-windows/dimming-enabled true
+dconf write /org/gnome/shell/extensions/dim-background-windows/toggle-shortcut "['<Super>g']"
+
+printf "done.\n"
