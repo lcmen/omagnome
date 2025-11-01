@@ -32,6 +32,7 @@
      - `spacebar.sh`: Workspace management bar
      - `blur-my-shell.sh`: UI blur effects for panel and dock
      - `dim-background-windows.sh`: Dims unfocused windows
+     - `freon.sh`: System temperature and sensor monitoring
 
 4. **UI Theme System** (`ui/`)
    - `install.sh`: Orchestrates theme installation
@@ -63,6 +64,13 @@
 4. Use clear, descriptive labels for each shortcut
 
 ### Adding New Extensions
+**IMPORTANT**: Whenever you add or remove extensions:
+1. Update the extension script in the `extensions/` directory
+2. **ALWAYS** update the "Features" section in `README.md` to add or remove the extension from the list
+3. Update the "Current extensions" list in this file (CLAUDE.md) under "GNOME Configuration"
+4. Ensure the README entry includes the extension name, link, and brief description
+
+When creating a new extension script:
 1. Create a new script in `extensions/` directory
 2. Follow the pattern from existing extension scripts:
    - Check if extension is already installed
@@ -167,6 +175,7 @@ journalctl -f /usr/bin/gnome-shell
   - Space Bar (workspace management)
   - Blur my Shell (UI blur effects)
   - Dim Background Windows (focus enhancement)
+  - Freon (system temperature and sensor monitoring)
 - Installs and applies Fluent GTK theme (light variant)
 - Installs and applies Qogir icon theme
 - Configures 5 static workspaces

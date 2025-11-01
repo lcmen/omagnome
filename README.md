@@ -11,6 +11,7 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
   - [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) - Blurred panel and UI elements
   - [Dim Background Windows](https://extensions.gnome.org/extension/6313/dim-background-windows/) - Dimmed unfocused windows
   - [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/) - Workspace management
+  - [Freon](https://extensions.gnome.org/extension/841/freon/) - System temperature and sensor monitoring
 - **Modern Theme**: Fluent GTK theme with Qogir icons for a polished look
 - **Clean Keybindings**: Removes default GNOME shortcuts to provide a clean slate for custom bindings
 - **Automated Setup**: Single script installation for reproducible desktop environment
@@ -45,8 +46,8 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 ### Forge Tiling (Layouts & Modes)
 - `Super + W` - Toggle tiling mode
 - `Shift + Super + W` - Toggle tiling for active workspace
-- `Super + C` - Toggle floating mode for window
-- `Shift + Super + C` - Toggle always-float for window
+- `Super + Space` - Toggle floating mode for window
+- `Shift + Super + Space` - Toggle always-float for window
 - `Super + Z` - Split horizontal
 - `Super + V` - Split vertical
 - `Super + X` - Toggle split layout
