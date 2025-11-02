@@ -2,7 +2,7 @@
 
 An opinionated GNOME desktop setup featuring lightweight tiling window management (Forge), custom keybindings, and UI enhancements for a consistent, productive experience.
 
-<img width="5120" height="2880" alt="Screenshot From 2025-10-11 11-57-06" src="https://github.com/user-attachments/assets/fced7185-5383-4432-bc14-474529f6ba59" />
+<img width="5120" height="2880" alt="Screenshot From 2025-11-02 19-28-49" src="https://github.com/user-attachments/assets/b3752b6c-14ec-44fc-895d-a9999f033a24" />
 
 ## Features
 
