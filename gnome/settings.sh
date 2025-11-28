@@ -14,4 +14,7 @@ gsettings set org.gnome.desktop.interface enable-hot-corners false
 echo "  - Disabling auto-maximize (Forge will handle it)..."
 gsettings set org.gnome.mutter auto-maximize false
 
+echo "  - Setting Files to use double-click..."
+gsettings set org.gnome.nautilus.preferences click-policy 'double'
+
 echo "GNOME settings configured successfully!"

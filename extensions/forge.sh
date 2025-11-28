@@ -3,25 +3,21 @@
 EXTENSION_UUID="forge@jmmaranan.com"
 EXTENSION_URL="https://extensions.gnome.org/extension/4481/forge/"
 
-printf "\n[omagnome]  Installing Forge GNOME extension: "
-
 # Check if the extension is installed
 if gnome-extensions list | grep -q "$EXTENSION_UUID"; then
-    printf "already installed.\n"
+    printf "\n[omagnome]  Updating Forge GNOME extension: "
 else
-    gdbus call --session \
-        --dest org.gnome.Shell.Extensions \
-        --object-path /org/gnome/Shell/Extensions \
-        --method org.gnome.Shell.Extensions.InstallRemoteExtension \
-        "$EXTENSION_UUID"
-
-    if [ $? -eq 0 ]; then
-        printf "done.\n"
-    else
-        printf "failed.\n"
-        exit 1
-    fi
+    printf "\n[omagnome]  Installing Forge GNOME extension: "
 fi
+
+gdbus call --session \
+    --dest org.gnome.Shell.Extensions \
+    --object-path /org/gnome/Shell/Extensions \
+    --method org.gnome.Shell.Extensions.InstallRemoteExtension \
+    "$EXTENSION_UUID" >/dev/null 2>&1
+
+read -p $'\nPress Enter after confirming the installation modal...\n'
+printf "done.\n"
 
 printf "[omagnome]  Enabling Forge GNOME extension: "
 
