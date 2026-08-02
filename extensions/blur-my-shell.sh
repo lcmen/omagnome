@@ -1,32 +1,13 @@
 #!/usr/bin/env bash
 
+set -e
+
 EXTENSION_UUID="blur-my-shell@aunetx"
-EXTENSION_URL="https://extensions.gnome.org/extension/3193/blur-my-shell/"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Check if the extension is installed
-if gnome-extensions list | grep -q "$EXTENSION_UUID"; then
-    printf "\n[omagnome]  Updating Blur my Shell GNOME extension: "
-else
-    printf "\n[omagnome]  Installing Blur my Shell GNOME extension: "
-fi
-
-gdbus call --session \
-    --dest org.gnome.Shell.Extensions \
-    --object-path /org/gnome/Shell/Extensions \
-    --method org.gnome.Shell.Extensions.InstallRemoteExtension \
-    "$EXTENSION_UUID" >/dev/null 2>&1
-
-read -p $'\nPress Enter after confirming the installation modal...\n'
-printf "done.\n"
-
-printf "[omagnome]  Enabling Blur my Shell GNOME extension: "
-
-if gnome-extensions enable "$EXTENSION_UUID"; then
-    printf "done.\n"
-else
-    printf "failed.\n"
-    exit 1
-fi
+# shellcheck source=extensions/utils.sh
+source "$SCRIPT_DIR/utils.sh"
+install_and_enable_extension "$EXTENSION_UUID" "Blur my Shell"
 
 printf "[omagnome]  Configuring Blur my Shell settings: "
 

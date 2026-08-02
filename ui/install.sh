@@ -42,8 +42,8 @@ gsettings set org.gnome.desktop.interface icon-theme 'Qogir'
 echo "[omagnome]  Applying theme for Flatpak apps..."
 flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
 flatpak override --user --filesystem=xdg-config/gtk-4.0:ro
-flatpak override --user --filesystem=$HOME/.themes:ro
-flatpak override --user --filesystem=$HOME/.icons:ro
+flatpak override --user --filesystem="$HOME/.themes:ro"
+flatpak override --user --filesystem="$HOME/.icons:ro"
 flatpak override --user --env=GTK_THEME=Fluent-Light
 flatpak override --user --env=ICON_THEME=Qogir
 

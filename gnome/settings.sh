@@ -6,7 +6,7 @@ echo "  - Disabling mouse acceleration..."
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
 
 echo "  - Disabling screen edge tiling..."
-gsettings set org.gnome.desktop.wm.preferences edge-tiling false
+gsettings set org.gnome.mutter edge-tiling false
 
 echo "  - Disabling hot corners..."
 gsettings set org.gnome.desktop.interface enable-hot-corners false

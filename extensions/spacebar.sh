@@ -1,32 +1,13 @@
 #!/usr/bin/env bash
 
+set -e
+
 EXTENSION_UUID="space-bar@luchrioh"
-EXTENSION_URL="https://extensions.gnome.org/extension/5090/space-bar/"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Check if the extension is installed
-if gnome-extensions list | grep -q "$EXTENSION_UUID"; then
-    printf "\n[omagnome]  Updating Space Bar GNOME extension: "
-else
-    printf "\n[omagnome]  Installing Space Bar GNOME extension: "
-fi
-
-gdbus call --session \
-    --dest org.gnome.Shell.Extensions \
-    --object-path /org/gnome/Shell/Extensions \
-    --method org.gnome.Shell.Extensions.InstallRemoteExtension \
-    "$EXTENSION_UUID" >/dev/null 2>&1
-
-read -p $'\nPress Enter after confirming the installation modal...\n'
-printf "done.\n"
-
-printf "[omagnome]  Enabling Space Bar GNOME extension: "
-
-if gnome-extensions enable "$EXTENSION_UUID"; then
-    printf "done.\n"
-else
-    printf "failed.\n"
-    exit 1
-fi
+# shellcheck source=extensions/utils.sh
+source "$SCRIPT_DIR/utils.sh"
+install_and_enable_extension "$EXTENSION_UUID" "Space Bar"
 
 printf "[omagnome]  Configuring Space Bar settings: "
 

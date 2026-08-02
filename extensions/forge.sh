@@ -1,32 +1,13 @@
 #!/usr/bin/env bash
 
+set -e
+
 EXTENSION_UUID="forge@jmmaranan.com"
-EXTENSION_URL="https://extensions.gnome.org/extension/4481/forge/"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Check if the extension is installed
-if gnome-extensions list | grep -q "$EXTENSION_UUID"; then
-    printf "\n[omagnome]  Updating Forge GNOME extension: "
-else
-    printf "\n[omagnome]  Installing Forge GNOME extension: "
-fi
-
-gdbus call --session \
-    --dest org.gnome.Shell.Extensions \
-    --object-path /org/gnome/Shell/Extensions \
-    --method org.gnome.Shell.Extensions.InstallRemoteExtension \
-    "$EXTENSION_UUID" >/dev/null 2>&1
-
-read -p $'\nPress Enter after confirming the installation modal...\n'
-printf "done.\n"
-
-printf "[omagnome]  Enabling Forge GNOME extension: "
-
-if gnome-extensions enable "$EXTENSION_UUID"; then
-    printf "done.\n"
-else
-    printf "failed.\n"
-    exit 1
-fi
+# shellcheck source=extensions/utils.sh
+source "$SCRIPT_DIR/utils.sh"
+install_and_enable_extension "$EXTENSION_UUID" "Forge"
 
 printf "[omagnome]  Configuring Forge settings: "
 
@@ -44,7 +25,7 @@ dconf write /org/gnome/shell/extensions/forge/keybindings/con-split-vertical "['
 dconf write /org/gnome/shell/extensions/forge/keybindings/con-stacked-layout-toggle "['<Shift><Super>s']"
 dconf write /org/gnome/shell/extensions/forge/keybindings/con-tabbed-layout-toggle "['<Shift><Super>t']"
 dconf write /org/gnome/shell/extensions/forge/keybindings/con-tabbed-showtab-decoration-toggle "['<Control><Alt>y']"
-dconf write /org/gnome/shell/extensions/forge/keybindings/focus-border-toggle "['<Super>x']"
+dconf write /org/gnome/shell/extensions/forge/keybindings/focus-border-toggle "@as []"
 dconf write /org/gnome/shell/extensions/forge/keybindings/prefs-tiling-toggle "['<Super>w']"
 dconf write /org/gnome/shell/extensions/forge/keybindings/window-focus-down "['<Super>Down']"
 dconf write /org/gnome/shell/extensions/forge/keybindings/window-focus-left "['<Super>Left']"

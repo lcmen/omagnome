@@ -12,6 +12,7 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
   - [Dim Background Windows](https://extensions.gnome.org/extension/6313/dim-background-windows/) - Dimmed unfocused windows
   - [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/) - Workspace management
   - [Freon](https://extensions.gnome.org/extension/841/freon/) - System temperature and sensor monitoring
+  - [User Themes](https://extensions.gnome.org/extension/19/user-themes/) - Loads the Fluent GNOME Shell theme
 - **Modern Theme**: Fluent GTK theme with Qogir icons for a polished look
 - **Clean Keybindings**: Removes default GNOME shortcuts to provide a clean slate for custom bindings
 - **Automated Setup**: Single script installation for reproducible desktop environment
