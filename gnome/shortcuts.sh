@@ -92,10 +92,25 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys calculator "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys email "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys help "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys hibernate "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys hibernate-static "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys logout "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver-static "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys search "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys suspend "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys suspend-static "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys www "[]"
+
+# Disable accessibility shortcuts
+gsettings set org.gnome.settings-daemon.plugins.media-keys decrease-text-size "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys increase-text-size "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys magnifier "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys magnifier-zoom-in "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys magnifier-zoom-out "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys on-screen-keyboard "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys screenreader "[]"
+gsettings set org.gnome.settings-daemon.plugins.media-keys toggle-contrast "[]"
 
 # Disable ALL mutter shortcuts
 gsettings set org.gnome.mutter.keybindings cancel-input-capture "[]"
@@ -108,6 +123,20 @@ gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "[]"
 
 echo "[omagnome]  Setting up keyboard shortcuts..."
+
+# Switch directly to workspaces 1-9 with Super plus their number, and use Super+0 for workspace 10.
+for workspace in {1..9}; do
+    gsettings set org.gnome.desktop.wm.keybindings "switch-to-workspace-$workspace" \
+        "['<Super>$workspace']"
+done
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']"
+
+# Move the active window directly to workspaces 1-9 with Super+Shift plus their number, and use Super+Shift+0 for workspace 10.
+for workspace in {1..9}; do
+    gsettings set org.gnome.desktop.wm.keybindings "move-to-workspace-$workspace" \
+        "['<Shift><Super>$workspace']"
+done
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Shift><Super>0']"
 
 # Enable Super+Tab for switching between applications
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"

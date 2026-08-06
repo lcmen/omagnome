@@ -25,6 +25,12 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 - `Super + Q` - Close/quit active window
 - `Print` - Open screenshot/screencast UI
 
+### Workspaces
+- `Super + 1…9` - Switch directly to workspace 1…9
+- `Super + 0` - Switch directly to workspace 10
+- `Shift + Super + 1…9` - Move active window to workspace 1…9
+- `Shift + Super + 0` - Move active window to workspace 10
+
 ### Forge Tiling (Window Focus)
 - `Super + ↑/↓/←/→` - Focus window in direction
 
@@ -39,10 +45,6 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 
 ### Forge Tiling (Window Snapping)
 - `Shift + Super + Return` - Snap window to center
-- `Shift + Super + H` - Snap window to left 2/3
-- `Shift + Super + L` - Snap window to right 2/3
-- `Shift + Super + J` - Snap window to left 1/3
-- `Shift + Super + K` - Snap window to right 1/3
 
 ### Forge Tiling (Layouts & Modes)
 - `Super + W` - Toggle tiling mode

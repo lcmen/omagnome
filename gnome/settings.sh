@@ -14,6 +14,9 @@ gsettings set org.gnome.desktop.interface enable-hot-corners false
 echo "  - Disabling auto-maximize (Forge will handle it)..."
 gsettings set org.gnome.mutter auto-maximize false
 
+echo "  - Using Left Alt for Polish characters and Right Alt as normal Alt..."
+gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:lalt_switch', 'lv3:ralt_alt']"
+
 echo "  - Setting Files to use double-click..."
 gsettings set org.gnome.nautilus.preferences click-policy 'double'
 

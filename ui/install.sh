@@ -6,6 +6,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "[omagnome]  Setting up UI themes and icons..."
 
+if ! command -v sassc > /dev/null 2>&1; then
+    echo "[omagnome]  Error: sassc is required to build the Fluent GTK theme." >&2
+    echo "[omagnome]  Install it on Fedora with: sudo dnf install sassc" >&2
+    exit 1
+fi
+
 # Check if submodules are already added
 if [ ! -d "$SCRIPT_DIR/Fluent-gtk-theme" ]; then
     echo "[omagnome]  Adding Fluent GTK theme as submodule..."
@@ -24,12 +30,22 @@ git submodule update --init --recursive --remote ui/Fluent-gtk-theme ui/Qogir-ic
 # Install Fluent GTK theme
 echo "[omagnome]  Installing Fluent GTK theme..."
 cd "$SCRIPT_DIR/Fluent-gtk-theme"
-./install.sh -t default -c light -s standard -l > /dev/null 2>&1
+./install.sh \
+    --theme default \
+    --color light \
+    --size standard \
+    --libadwaita
 
 # Install Qogir icon theme
 echo "[omagnome]  Installing Qogir icon theme..."
 cd "$SCRIPT_DIR/Qogir-icon-theme"
 ./install.sh -t default -c standard > /dev/null 2>&1
+
+# Use Qogir's classic terminal icon for Ptyxis, Fedora's default terminal.
+echo "[omagnome]  Applying classic terminal icon to Ptyxis..."
+cp "$HOME/.local/share/icons/Qogir/scalable/apps/terminal.svg" \
+    "$HOME/.local/share/icons/Qogir/scalable/apps/org.gnome.Ptyxis.svg"
+gtk-update-icon-cache -f "$HOME/.local/share/icons/Qogir" > /dev/null
 
 # Apply themes to GNOME
 echo "[omagnome]  Applying Fluent GTK theme to GNOME..."
