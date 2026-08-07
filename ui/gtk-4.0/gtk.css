@@ -1,0 +1,14 @@
+/* Keep libadwaita's defaults, changing only the outer window decoration. */
+window {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Hide Nautilus's second sidebar row (the Recent shortcut). */
+.nautilus-window .navigation-sidebar > .sidebar-row:nth-child(2) {
+  margin-top: -2px;
+  min-height: 0;
+  font-size: 0;
+  -gtk-icon-size: 0;
+}

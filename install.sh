@@ -24,4 +24,5 @@ done
 
 printf "\n[omagnome] Setting up UI themes ========================================\n"
 
+bash ui/font.sh
 bash ui/install.sh

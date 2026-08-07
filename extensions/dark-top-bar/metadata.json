@@ -1,0 +1,7 @@
+{
+  "name": "Dark Top Bar",
+  "description": "Keeps only the GNOME top bar dark when Light Style is enabled.",
+  "uuid": "dark-top-bar@omagnome",
+  "shell-version": ["45", "46", "47", "48", "49", "50"],
+  "version": 1
+}

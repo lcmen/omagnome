@@ -8,12 +8,11 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 
 - **Tiling Window Management**: Lightweight tiling capabilities via [Forge](https://extensions.gnome.org/extension/4481/forge/)
 - **UI Enhancements**:
-  - [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) - Blurred panel and UI elements
+  - **Dark Top Bar** - A minimal local extension that keeps only the top bar dark with GNOME Shell's Light Style
   - [Dim Background Windows](https://extensions.gnome.org/extension/6313/dim-background-windows/) - Dimmed unfocused windows
   - [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/) - Workspace management
   - [Freon](https://extensions.gnome.org/extension/841/freon/) - System temperature and sensor monitoring
-  - [User Themes](https://extensions.gnome.org/extension/19/user-themes/) - Loads the Fluent GNOME Shell theme
-- **Modern Theme**: Fluent GTK theme with Qogir icons for a polished look
+- **Modern Theme**: Default libadwaita styling, an adw-gtk3 compatibility theme, small GTK tweaks, and Qogir icons
 - **Clean Keybindings**: Removes default GNOME shortcuts to provide a clean slate for custom bindings
 - **Automated Setup**: Single script installation for reproducible desktop environment
 
@@ -71,12 +70,13 @@ This will:
 - `gsettings` command (pre-installed on most GNOME systems)
 - `gnome-extensions` CLI tool
 - `gnome-shell-extensions` package (for extension installation via D-Bus)
-- `sass` (for compiling GTK themes)
+- `adw-gtk3-theme` (Fedora package for libadwaita-style GTK 3 applications)
+- `curl` and `unzip` (for installing Inter and FiraCode Nerd Font locally)
 - D-Bus session bus access
 
 ## Credits
 
-- [Fluent GTK Theme](https://github.com/vinceliuice/Fluent-gtk-theme) by [vinceliuice](https://github.com/vinceliuice)
+- [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) by [lassekongo83](https://github.com/lassekongo83)
 - [Qogir Icon Theme](https://github.com/vinceliuice/Qogir-icon-theme) by [vinceliuice](https://github.com/vinceliuice)
 
 ## License

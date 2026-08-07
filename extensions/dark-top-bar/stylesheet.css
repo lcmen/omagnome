@@ -1,0 +1,18 @@
+/* Light Style applies the light Shell palette; override only the top panel. */
+#panel {
+  background-color: rgba(30, 30, 30, 0.92);
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+}
+
+#panel .panel-button {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+#panel .panel-button:hover,
+#panel .panel-button:active,
+#panel .panel-button:checked {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}

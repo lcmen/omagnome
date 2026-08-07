@@ -1,0 +1,29 @@
+/* Compact SSD header bars without changing the adw-gtk3 palette. */
+window.ssd headerbar.titlebar {
+  min-height: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+window.ssd headerbar.titlebar button.titlebutton {
+  min-height: 0;
+  min-width: 0;
+  padding: 1px;
+}
+
+/* Match the slightly squarer window shape used by the GTK 4 tweaks. */
+headerbar,
+headerbar .title,
+.csd .titlebar,
+decoration,
+window,
+window.background,
+window.titlebar,
+.window-frame {
+  border-radius: 5px 5px 0 0;
+}
+
+/* Keep decoration on the titlebar; borders on the whole window can double up. */
+.csd .titlebar {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
