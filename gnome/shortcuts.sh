@@ -4,6 +4,10 @@ set -e
 
 echo "[omagnome]  Removing all GNOME keyboard shortcuts..."
 
+# Leave the Super modifier available for Forge and launcher chords instead of
+# opening the Shell overview when it is pressed by itself.
+gsettings set org.gnome.mutter overlay-key ''
+
 # Disable ALL desktop window manager shortcuts
 gsettings set org.gnome.desktop.wm.keybindings activate-window-menu "[]"
 gsettings set org.gnome.desktop.wm.keybindings begin-move "[]"

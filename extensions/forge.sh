@@ -95,8 +95,8 @@ dconf write /org/gnome/shell/extensions/forge/keybindings/window-swap-last-activ
 dconf write /org/gnome/shell/extensions/forge/keybindings/window-swap-left "['<Control><Super>Left']"
 dconf write /org/gnome/shell/extensions/forge/keybindings/window-swap-right "['<Control><Super>Right']"
 dconf write /org/gnome/shell/extensions/forge/keybindings/window-swap-up "['<Control><Super>Up']"
-dconf write /org/gnome/shell/extensions/forge/keybindings/window-toggle-always-float "['<Shift><Super>space']"
-dconf write /org/gnome/shell/extensions/forge/keybindings/window-toggle-float "['<Super>space']"
+dconf write /org/gnome/shell/extensions/forge/keybindings/window-toggle-always-float "['<Shift><Super>f']"
+dconf write /org/gnome/shell/extensions/forge/keybindings/window-toggle-float "['<Super>f']"
 dconf write /org/gnome/shell/extensions/forge/keybindings/workspace-active-tile-toggle "['<Shift><Super>w']"
 
 printf "done.\n"

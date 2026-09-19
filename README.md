@@ -12,6 +12,8 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
   - [Dim Background Windows](https://extensions.gnome.org/extension/6313/dim-background-windows/) - Dimmed unfocused windows
   - [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/) - Workspace management
   - [Freon](https://extensions.gnome.org/extension/841/freon/) - System temperature and sensor monitoring
+  - [No overview at start-up](https://extensions.gnome.org/extension/4099/no-overview/) - Keeps GNOME out of Overview after login
+  - [Ulauncher](https://ulauncher.io/) - Keyboard-driven application launcher with a white transparent theme
 - **Modern Theme**: Default libadwaita styling, an adw-gtk3 compatibility theme, small GTK tweaks, and Qogir icons
 - **Clean Keybindings**: Removes default GNOME shortcuts to provide a clean slate for custom bindings
 - **Automated Setup**: Single script installation for reproducible desktop environment
@@ -48,8 +50,9 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 ### Forge Tiling (Layouts & Modes)
 - `Super + W` - Toggle tiling mode
 - `Shift + Super + W` - Toggle tiling for active workspace
-- `Super + Space` - Toggle floating mode for window
-- `Shift + Super + Space` - Toggle always-float for window
+- `Super + F` - Toggle floating mode for window
+- `Shift + Super + F` - Toggle always-float for window
+- `Super + Space` - Open Ulauncher
 - `Super + Z` - Split horizontal
 - `Super + V` - Split vertical
 - `Super + X` - Toggle split layout
@@ -63,6 +66,7 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 This will:
 1. Configure GNOME settings and remove default keybindings
 2. Install and enable curated extensions
+3. Install and configure Ulauncher with its white transparent theme
 
 ## Requirements
 
@@ -71,7 +75,7 @@ This will:
 - `gnome-extensions` CLI tool
 - `gnome-shell-extensions` package (for extension installation via D-Bus)
 - `adw-gtk3-theme` (Fedora package for libadwaita-style GTK 3 applications)
-- `curl` and `unzip` (for installing Inter and FiraCode Nerd Font locally)
+- `curl`, `unzip`, `git`, and `jq` (for installing fonts, the Ulauncher theme, and preserving launcher settings)
 - D-Bus session bus access
 
 ## Credits

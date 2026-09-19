@@ -22,6 +22,10 @@ for extension in extensions/*.sh; do
   bash "$extension"
 done
 
+printf "\n[omagnome] Setting up Ulauncher ========================================\n"
+
+bash launcher/ulauncher.sh
+
 printf "\n[omagnome] Setting up UI themes ========================================\n"
 
 bash ui/font.sh
