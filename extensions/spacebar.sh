@@ -14,6 +14,11 @@ printf "[omagnome]  Configuring Space Bar settings: "
 # Behavior settings - disable toggle overview
 dconf write /org/gnome/shell/extensions/space-bar/behavior/toggle-overview false
 
+# Match the top bar's regular font weight.
+dconf write /org/gnome/shell/extensions/space-bar/appearance/active-workspace-font-weight "'400'"
+dconf write /org/gnome/shell/extensions/space-bar/appearance/inactive-workspace-font-weight "'400'"
+dconf write /org/gnome/shell/extensions/space-bar/appearance/empty-workspace-font-weight "'400'"
+
 # Shortcuts settings - disable default shortcuts, enable move-to-workspace
 dconf write /org/gnome/shell/extensions/space-bar/shortcuts/activate-empty-key "@as []"
 dconf write /org/gnome/shell/extensions/space-bar/shortcuts/activate-previous-key "@as []"

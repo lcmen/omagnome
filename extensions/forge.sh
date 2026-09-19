@@ -41,7 +41,11 @@ mkdir -p "$FORGE_INSTALL_DIR"
 cp -a "$FORGE_BUILD_DIR/forge/temp/." "$FORGE_INSTALL_DIR/"
 printf "done.\n"
 
-enable_extension "$EXTENSION_UUID" "Forge"
+if extension_is_installed "$EXTENSION_UUID"; then
+    enable_extension "$EXTENSION_UUID" "Forge"
+else
+    printf "[omagnome]  Forge will be available after logging out and back in.\n"
+fi
 
 printf "[omagnome]  Configuring Forge settings: "
 
@@ -50,7 +54,7 @@ dconf write /org/gnome/shell/extensions/forge/focus-border-toggle false
 dconf write /org/gnome/shell/extensions/forge/split-border-toggle true
 dconf write /org/gnome/shell/extensions/forge/stacked-tiling-mode-enabled false
 dconf write /org/gnome/shell/extensions/forge/tabbed-tiling-mode-enabled false
-dconf write /org/gnome/shell/extensions/forge/window-gap-size "uint32 4"
+dconf write /org/gnome/shell/extensions/forge/window-gap-size "uint32 2"
 dconf write /org/gnome/shell/extensions/forge/window-gap-size-increment "uint32 2"
 
 # Keybindings

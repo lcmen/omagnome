@@ -16,3 +16,44 @@
   background-color: rgba(255, 255, 255, 0.16);
   color: #ffffff;
 }
+
+/* GNOME highlights the clock's inner node; avoid drawing a second outer pill. */
+#panel .panel-button.clock-display:hover,
+#panel .panel-button.clock-display:active,
+#panel .panel-button.clock-display:checked {
+  background-color: transparent;
+}
+
+#panel .panel-button.clock-display:hover .clock {
+  box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.16);
+}
+
+#panel .panel-button.clock-display:active .clock,
+#panel .panel-button.clock-display:checked .clock {
+  box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.28);
+}
+
+/* Keep Shell popup containers consistent with square application windows. */
+.popup-menu-content,
+.candidate-popup-content,
+.quick-settings {
+  border-radius: 0;
+}
+
+.popup-menu-boxpointer,
+.candidate-popup-boxpointer {
+  /* Forge applies its 2px × 2 multiplier gap to container and window nodes. */
+  -arrow-rise: 8px;
+  -boxpointer-gap: 0;
+}
+
+/* Square notification banners and message cards, but not their controls. */
+.notification-banner,
+.message-view .message,
+.message {
+  border-radius: 0;
+}
+
+.notification-banner {
+  margin-top: 8px;
+}

@@ -6,7 +6,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "[omagnome]  Setting up UI themes and icons..."
 
-if ! rpm -q adw-gtk3-theme > /dev/null 2>&1; then
+if [ ! -d /usr/share/themes/adw-gtk3 ] && \
+    [ ! -d "${XDG_DATA_HOME:-$HOME/.local/share}/themes/adw-gtk3" ] && \
+    [ ! -d "$HOME/.themes/adw-gtk3" ]; then
     echo "[omagnome]  Error: adw-gtk3-theme is required for GTK 3 applications." >&2
     echo "[omagnome]  Install it on Fedora with: sudo dnf install adw-gtk3-theme" >&2
     exit 1
@@ -48,13 +50,10 @@ gsettings reset org.gnome.shell.extensions.user-theme name 2> /dev/null || true
 echo "[omagnome]  Applying Qogir icon theme to GNOME..."
 gsettings set org.gnome.desktop.interface icon-theme 'Qogir'
 
-echo "[omagnome]  Applying theme for Flatpak apps..."
+echo "[omagnome]  Sharing GTK customizations and icons with Flatpak apps..."
 flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
 flatpak override --user --filesystem=xdg-config/gtk-4.0:ro
-flatpak override --user --filesystem="$HOME/.themes:ro"
-flatpak override --user --filesystem="$HOME/.icons:ro"
-flatpak override --user --unset-env=GTK_THEME
-flatpak override --user --env=ICON_THEME=Qogir
+flatpak override --user --filesystem=xdg-data/icons:ro
 
 echo "[omagnome]  Note: You may need to log out and log back in for all theme changes to take effect."
 
