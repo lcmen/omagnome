@@ -13,7 +13,8 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
   - [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/) - Workspace management
   - [Freon](https://extensions.gnome.org/extension/841/freon/) - System temperature and sensor monitoring
   - [No overview at start-up](https://extensions.gnome.org/extension/4099/no-overview/) - Keeps GNOME out of Overview after login
-  - [Ulauncher](https://ulauncher.io/) - Keyboard-driven application launcher with a white transparent theme
+  - [ArcMenu](https://extensions.gnome.org/extension/3628/arcmenu/) - Keyboard-driven application launcher using its standalone Runner
+  - [GNOME Fuzzy App Search](https://extensions.gnome.org/extension/3956/gnome-fuzzy-app-search/) - Fuzzy application matching for GNOME search
 - **Modern Theme**: Default libadwaita styling, an adw-gtk3 compatibility theme, small GTK tweaks, and Qogir icons
 - **Clean Keybindings**: Removes default GNOME shortcuts to provide a clean slate for custom bindings
 - **Automated Setup**: Single script installation for reproducible desktop environment
@@ -52,7 +53,7 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 - `Shift + Super + W` - Toggle tiling for active workspace
 - `Super + F` - Toggle floating mode for window
 - `Shift + Super + F` - Toggle always-float for window
-- `Super + Space` - Open Ulauncher
+- `Super + Space` - Open ArcMenu Runner
 - `Super + Z` - Split horizontal
 - `Super + V` - Split vertical
 - `Super + X` - Toggle split layout
@@ -66,7 +67,7 @@ An opinionated GNOME desktop setup featuring lightweight tiling window managemen
 This will:
 1. Configure GNOME settings and remove default keybindings
 2. Install and enable curated extensions
-3. Install and configure Ulauncher with its white transparent theme
+3. Install and configure ArcMenu Runner and fuzzy application search
 
 ## Requirements
 
@@ -75,7 +76,7 @@ This will:
 - `gnome-extensions` CLI tool
 - `gnome-shell-extensions` package (for extension installation via D-Bus)
 - `adw-gtk3-theme` (Fedora package for libadwaita-style GTK 3 applications)
-- `curl`, `unzip`, `git`, and `jq` (for installing fonts, the Ulauncher theme, and preserving launcher settings)
+- `curl`, `unzip`, and `git` (for installing fonts and UI assets)
 - D-Bus session bus access
 
 ## Credits
